@@ -103,6 +103,42 @@ public class SinglyLinkedList {
 		System.out.println("Data not found");
 		
 	}
+	
+	public int size() {
+		int size = 0;
+		
+		if(head == null) {
+			return size;
+		}
+		
+		if(head.next == null) {
+			return size+1;
+		}
+		
+		
+		Node curr = head;
+		while(curr.next != null) {
+			size++;
+			curr = curr.next; 
+		}
+		return size+1;
+	}
+	
+	public void reverseList() {
+		
+		Node curr = head;
+		Node next = null;
+		Node prev = null;
+		while(curr != null) {
+			
+			next = curr.next;
+			curr.next =prev;
+			prev = curr;
+			curr = next;
+		}
+		head = prev;
+				
+	}
 
 
 	public void print() {
@@ -122,7 +158,52 @@ public class SinglyLinkedList {
 	}
 	
 	
+	//////////////Floyd's Cycle Algorithm/////////////////
 	
+	public boolean isLoopPresent() {
+
+		Node fastPtr = head;
+		Node slowPtr = head;
+		
+		while(fastPtr != null && fastPtr.next != null) {
+			fastPtr = fastPtr.next.next;
+			slowPtr = slowPtr.next;
+			if(slowPtr == fastPtr) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
+	public Node getLoopStartNode() {
+		Node fastPtr = head;
+		Node slowPtr = head;
+		while(fastPtr != null && fastPtr.next != null) {
+			fastPtr = fastPtr.next.next;
+			slowPtr = slowPtr.next;
+			if(slowPtr == fastPtr) {
+				getStartNode(slowPtr);
+			}
+		}
+		return null;
+	}
+	
+	private Node getStartNode(Node slowPtr) {
+		Node curr = head;
+		while(curr != null && slowPtr != null) {
+			curr = curr.next.next;
+			slowPtr = slowPtr.next;
+			
+			if(slowPtr ==curr) {
+				return slowPtr;
+			}
+		}
+		return null;
+	}
+	
+	
+	/////////////////////////////////////////////////////
 	
 }
 
