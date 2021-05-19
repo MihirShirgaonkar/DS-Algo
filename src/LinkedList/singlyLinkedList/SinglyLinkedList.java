@@ -192,7 +192,7 @@ public class SinglyLinkedList {
 	private Node getStartNode(Node slowPtr) {
 		Node curr = head;
 		while(curr != null && slowPtr != null) {
-			curr = curr.next.next;
+			curr = curr.next;
 			slowPtr = slowPtr.next;
 			
 			if(slowPtr ==curr) {
@@ -200,6 +200,27 @@ public class SinglyLinkedList {
 			}
 		}
 		return null;
+	}
+	
+	public void removeLoop() {
+		Node fastPtr = head;
+		Node slowPtr = head;
+		while(fastPtr != null && fastPtr.next != null) {
+			fastPtr = fastPtr.next.next;
+			slowPtr = slowPtr.next;
+			if(slowPtr == fastPtr) {
+				privateLoopRemover(slowPtr);
+			}
+		}
+	}
+	
+	public void privateLoopRemover(Node slowPtr) {
+		Node curr = head;
+		while(curr.next != slowPtr.next) {
+			curr = curr.next;
+			slowPtr = slowPtr.next;
+		}
+		slowPtr.next = null;
 	}
 	
 	

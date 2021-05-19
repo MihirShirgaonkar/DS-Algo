@@ -14,7 +14,7 @@ public class Test {
 		ll.addNodeToEnd(4);
 //		
 		
-		ll.reverseList();
+//		ll.reverseList();
 		ll.print();
 //		ll.addNodeAfter(2, 33);
 //		ll.addNodeAfter(123, 45);
