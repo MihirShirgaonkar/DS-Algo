@@ -66,14 +66,16 @@ public class CircularSinglyLinkedList {
 		return temp;
 	}
 	
-//	public void print() {
-//		
-//		Node curr = last.next; 
-//		while(curr != last) {
-//			System.out.println(curr.data);
-//			curr = curr.next;
-//		}
-//		
+	public void print() {
+		
+		Node curr = last.next; 
+		
+		
+		while(curr != last) {
+			System.out.println(curr.data);
+			curr = curr.next;
+		}
+		
 		
 	}
 	

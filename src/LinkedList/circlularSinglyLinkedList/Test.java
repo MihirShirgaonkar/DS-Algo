@@ -12,7 +12,7 @@ public class Test {
 		
 		csll.deleteEnd();
 		
-//		csll.print();
+		csll.print();
 		System.out.println(csll.length);
 		
 		
