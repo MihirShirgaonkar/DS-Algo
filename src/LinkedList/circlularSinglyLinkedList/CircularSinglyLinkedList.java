@@ -33,7 +33,7 @@ public class CircularSinglyLinkedList {
 			Node temp =last.next;
 			n.next =temp;
 		}
-		last.next =n;
+		last.next = n;
 		
 		length++;
 	}
@@ -49,32 +49,41 @@ public class CircularSinglyLinkedList {
 			n.next = temp;
 		}
 		last.next = n;
+		
+		last = last.next; 
 		length++;
 		
 	}
 	
-	public Node deleteEnd() {
-		Node temp = last.next;
+	public Node deleteFirst() {
+		
 		if(isEmpty()) {
 			return null;
-		}else {
-			last.next = null;
-			last = temp.next;
-			temp.next = null; 
-			length--;
 		}
+		Node temp = last.next;
+		
+		last.next = temp.next;
+		temp.next =null;
+		
 		return temp;
 	}
 	
 	public void print() {
 		
+		if(isEmpty()) {
+			System.out.println("null");
+			return;
+		}
+		
 		Node curr = last.next; 
+		
 		
 		
 		while(curr != last) {
 			System.out.println(curr.data);
 			curr = curr.next;
 		}
+		System.out.println(curr.data);
 		
 		
 	}
