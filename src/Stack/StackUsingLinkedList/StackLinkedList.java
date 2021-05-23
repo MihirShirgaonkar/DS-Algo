@@ -22,6 +22,7 @@ public class StackLinkedList {
 	}
 	
 	
+	@SuppressWarnings("null")
 	public int peak() {
 		
 		if(isEmpty()) {

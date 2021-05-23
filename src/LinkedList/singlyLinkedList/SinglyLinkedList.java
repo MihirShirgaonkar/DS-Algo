@@ -73,6 +73,7 @@ public class SinglyLinkedList {
 		
 	}
 	
+	@SuppressWarnings("null")
 	public int deleteAtStart() {
 		if(head != null) {
 			Node toDelete = head;
